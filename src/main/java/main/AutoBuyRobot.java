@@ -1,6 +1,7 @@
 package main;
 
 import org.openqa.selenium.WebDriver;
+import page.LeftSideBarPage;
 import setting.BrowserSetting;
 
 import java.net.MalformedURLException;
@@ -10,11 +11,15 @@ import java.net.MalformedURLException;
  */
 public class AutoBuyRobot {
 
-    public static void main(String[] args) throws MalformedURLException {
+    public static void main(String[] args) throws MalformedURLException, InterruptedException {
         BrowserSetting setting = new BrowserSetting();
-        WebDriver drive = setting.newWebDriver();
+        WebDriver driver = setting.newWebDriver();
 
-        drive.get("https://www.easports.com/fifa/ultimate-team/web-app/");
+        driver.get("https://www.easports.com/fifa/ultimate-team/web-app/");
+
+        LeftSideBarPage leftSideBar = new LeftSideBarPage(driver);
+
+        leftSideBar.clickBtTransfers();
 
     }
 
